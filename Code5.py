@@ -85,13 +85,35 @@ pendulum_list = [15,18,21,22.5,25]
 pendulum_set = FiniteSet(15,18,21,22.5,25)
 def pendulum(number):
     for i in number:
-        L = i
+        L = i/100
         g = 9.8
-        T = 2 * pi * (L/100 / g)**0.5
+        T = 2 * pi * (L/g)**0.5
         print('length: {0}, T: {1:.3f}'.format(float(L), float(T)))
 
 pendulum(pendulum_list)
 pendulum(pendulum_set)
+
+#whats the difference between using lists and sets?
+
+#apply same deal as before but with different g's
+length_set = FiniteSet(15,18,21,22.5,25)
+gravity_set = FiniteSet(9.78, 9.8, 9.83)
+length_gravity_all = length_set*gravity_set
+print('{0:^15}{1:^15}{2:^15}'.format('Length(cm)','Gravity(m/s^2)'
+      ,'Time Period(s)'))
+for i in length_gravity_all:
+    L = i[0]/100
+    g = i[1]
+    T = 2*pi*(L/g)**0.5
+    print('{0:^15}{1:^15}{2:^15.3f}'.format(float(L),float(g),
+          float(T)))
+
+#new format types
+
+#probability
+#probability = length of event set/length of sample space
+#probability of a fair dice landing on a number
+event_space = FiniteSet(1,2,3,4,5,6)
 
 
 
