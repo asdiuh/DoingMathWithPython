@@ -47,6 +47,32 @@ ps
 len(ps)
 
 
+#is 53 prime?
+for i in range(1,54):
+    if i == 1:
+        print('i = 1')
+    elif i == 53:
+        print('i = 53')
+    elif int(i) != 1 or int(i) != 53:
+        if 53%i == 0:
+            print('prime, iteration = {0}'.format(i))
+        else: print('not prime')
+
+primes = [1,2]
+for i in range(3,1000):
+    primes_staging = []
+    for j in range(2,int(i)): #2,3,4
+        if i%j == 0: #5,2,3,4
+            primes_staging.append(1)
+    if sum(primes_staging) == 0:
+        print('{0} is a prime number!'.format(i))
+        primes.append(i)
+
+#print(primes)
+
+
+
+
 
 
 
