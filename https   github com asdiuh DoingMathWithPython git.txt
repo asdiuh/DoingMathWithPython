@@ -1,1 +1,8 @@
 https://github.com/asdiuh/DoingMathWithPython.git
+
+cd /home/redhwanzaman1989/<FolderName>
+git init
+git add .
+git commit -m "added page number to code D"
+git remote add origin <GITURL>
+git push -u origin master
