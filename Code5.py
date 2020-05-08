@@ -59,7 +59,7 @@ for i in range(1,54):
         else: print('not prime')
 
 primes = [1,2]
-for i in range(3,1000):
+for i in range(3,104987):
     primes_staging = []
     for j in range(2,int(i)): #2,3,4
         if i%j == 0: #5,2,3,4
@@ -71,12 +71,28 @@ for i in range(3,1000):
 #print(primes)
 
 
+#T = 2 * pi * (L/g)^0.5
+
+from sympy import pi, Symbol
+from sympy.plotting import plot
+x = Symbol('x')
+plot(pi*x, (x, -2,1))
 
 
+from sympy import FiniteSet, pi
 
+pendulum_list = [15,18,21,22.5,25]
+pendulum_set = FiniteSet(15,18,21,22.5,25)
+def pendulum(number):
+    for i in number:
+        L = i
+        g = 9.8
+        T = 2 * pi * (L/100 / g)**0.5
+        print('length: {0}, T: {1:.3f}'.format(float(L), float(T)))
 
+pendulum(pendulum_list)
+pendulum(pendulum_set)
 
-#146
 
 
 
