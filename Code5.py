@@ -155,7 +155,7 @@ def primes(ceiling):
     for i in range(1,int(ceiling)):
         x = True
         if i==1:
-            x = True
+            x = False #1 is not a prime number
         else:
             for j in range(2,i):
                 if i%j==0:
@@ -167,8 +167,33 @@ def primes(ceiling):
 
 prime1 = primes(1000)
 
+event = primes(20)
+
+len(event)/len(range(1,21))
+
 import matplotlib.pyplot as plt
 plt.plot(range(1,len(prime1)+1), prime1)
+
+
+from sympy import FiniteSet
+s = FiniteSet()
+for i in range(1,7):
+    s1 = FiniteSet(i)
+    s = s.union(s1)
+a = FiniteSet(2,3,5)
+b = FiniteSet(1,3,5)
+PrimeOrOdd = a.union(b)
+PrimeAndOdd = a.intersect(b)
+ProbPrimeOrOdd = len(PrimeOrOdd)/len(s)
+ProbPrimeAndOdd = len(PrimeAndOdd)/len(s)
+
+
+import random
+random.randint(1,6)
+
+
+
+
 
 
 
