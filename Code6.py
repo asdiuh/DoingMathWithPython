@@ -14,7 +14,6 @@ ax=plt.axes()
 plt.plot(x,y)
 plt.show()
 
-
 circle = plt.Circle((0, 0), radius = 0.5)
 ax=plt.gca()
 ax.set_aspect('equal')
@@ -22,14 +21,10 @@ ax.add_patch(circle)
 plt.axis('scaled')
 plt.show()
 
-
-
-
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 plt.style.use('seaborn-pastel')
-
 fig = plt.figure()
 ax = plt.axes(xlim=(0, 4), ylim=(-2, 2))
 line, = ax.plot([], [], lw=3)
@@ -48,3 +43,33 @@ anim = FuncAnimation(fig, animate, init_func=init,
 plt.show()
 
 anim.save('sine_wave.gif', writer='imagemagick')
+
+'''***********************************************************'''
+
+circle = plt.Circle((0, 0), radius = 0.5)
+ax=plt.gca()
+ax.set_aspect('equal')
+ax.add_patch(circle)
+plt.axis('scaled')
+plt.show()
+
+import numpy as np
+from matplotlib import pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+def create_circle():
+    circle = plt.Circle((0, 0), 0.05)
+    return circle
+def update_radius(i, circle):
+    circle.radius = i*0.5
+    return circle,
+
+fig=plt.gcf()
+ax=plt.axes(xlim=(-10,10),ylim=(-10,10))
+ax.set_aspect('equal')
+circle=create_circle()
+ax.add_patch(circle)
+anim=FuncAnimation(fig,update_radius,fargs=(circle,),frames=30,
+                   interval=50)
+plt.show()
+
