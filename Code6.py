@@ -125,6 +125,44 @@ u = 45
 create_animation(u, theta)
 
 
+#**********************************************************
+from matplotlib import pyplot as plt
+from matplotlib import animation
+import math
+
+def interval(end):
+    time = []
+    i = 0
+    while i <= end:
+        time.append(i)
+        i = i + .01
+    return time
+
+def throw(u,theta):
+    g = 9.8
+    theta = math.radians(theta)
+    uy = u*math.sin(theta)
+    ux = u*math.cos(theta)
+    t = 2 * uy/g
+    print(t)
+    time = interval(t)
+    print(time)
+    Sx = []
+    Sy = []
+    for i in time:
+        t = i
+        Sx.append(ux*t)
+        Sy.append(uy*t - 0.5*g*t**2)
+    plt.plot(Sx,Sy)
+
+
+
+
+
+
+
+
+
 
 
 
