@@ -113,7 +113,19 @@ for i in length_gravity_all:
 #probability
 #probability = length of event set/length of sample space
 #probability of a fair dice landing on a number
-event_space = FiniteSet(1,2,3,4,5,6)
+from sympy import FiniteSet
+sample_space = FiniteSet(1,2,3,4,5,6)
+event_space = []
+
+def dice_roll1(number):
+    for i in sample_space:
+        if i in number:
+            event_space.append(i)
+    probability = len(event_space)/len(sample_space)
+    return probability
+p_list = [1,2,3]
+a = dice_roll1(p_list)
+
 
 
 
