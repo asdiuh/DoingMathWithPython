@@ -126,11 +126,49 @@ def dice_roll1(number):
 p_list = [1,2,3]
 a = dice_roll1(p_list)
 
+#1. define sample space
+#2. cycle through sample space 
+#   and identify valid outcomes to determine event space
+#3. event space / sample space = probability
+
+#roll 20 sided die, whats the probability of rolling a prime?
+sample_space = range(1,21)
+event_space = []
+def check_primes(sample_space):
+    for number in sample_space:
+        if number == 1:
+            return True
+        else:
+            for j in range(2,number):
+                if number%j ==0:
+                    return False
+    return True
+
+check_primes(sample_space)
 
 
+#find all primes from 1 to 1000
+#for each number in 2 to 1000, divide by all integers and find remainder
+#cycle through
+prime=[]
+def primes(ceiling):
+    for i in range(1,int(ceiling)):
+        x = True
+        if i==1:
+            x = True
+        else:
+            for j in range(2,i):
+                if i%j==0:
+                    x = False
+        if x:
+            print('{0} is a prime number!'.format(i))
+            prime.append(i)
+    return prime
 
+prime1 = primes(1000)
 
-
+import matplotlib.pyplot as plt
+plt.plot(range(1,len(prime1)+1), prime1)
 
 
 
