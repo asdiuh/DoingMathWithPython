@@ -101,6 +101,7 @@ def update_position(i, circle, intervals, u, theta):
     return circle,
 
 def create_animation(u, theta):
+    theta = math.radians(theta)
     intervals = get_intervals(u, theta)
     xmin = 0
     xmax = u*math.cos(theta)*intervals[-1]
@@ -120,10 +121,7 @@ def create_animation(u, theta):
     plt.ylabel('Y')
     plt.show()
 
-theta = math.radians(45)
-u = 45
-create_animation(u, theta)
-
+create_animation(45, 15)
 
 #**********************************************************
 from matplotlib import pyplot as plt
@@ -155,7 +153,7 @@ def throw(u,theta):
         Sy.append(uy*t - 0.5*g*t**2)
     plt.plot(Sx,Sy)
 
-
+throw(15,60)
 
 
 
