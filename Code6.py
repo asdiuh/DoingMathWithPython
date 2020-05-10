@@ -373,7 +373,7 @@ def create_animation(u, theta):
     circle = plt.Circle((xmin, ymin), 1.0)
     ax.add_patch(circle)
     anim = animation.FuncAnimation(fig, update_position,
-                                   fargs=(circle, intervals, u, theta),
+                                   fargs=(circle, intteervals, u, theta),
                                    frames=len(intervals), interval=1,
                                    repeat=False)
     plt.title('Projectile Motion')
@@ -387,3 +387,46 @@ theta = math.radians(theta)
 create_animation(u, theta)
 
 
+#************************************************************
+#FRACTALS
+'''
+Example of selecting a transformation from two equally probable
+transformations
+'''
+import matplotlib.pyplot as plt
+import random
+def transformation_1(p):
+    x = p[0]
+    y = p[1]
+    return x + 1, y - 1
+
+def transformation_2(p):
+    x = p[0]
+    y = p[1]
+    return x + 1, y + 1
+
+def transform(p):
+# List of transformation functions
+    transformations = [transformation_1, transformation_2]
+# Pick a random transformation function and call it
+    t = random.choice(transformations)
+    x, y = t(p)
+    return x, y
+
+def build_trajectory(p, n):
+    x = [p[0]]
+    y = [p[1]]
+    for i in range(n):
+        p = transform(p)
+        x.append(p[0])
+        y.append(p[1])
+    return x, y
+
+p = (1, 1)
+n = int(3000)
+x, y = build_trajectory(p, n)
+# Plot
+plt.plot(x, y)
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.show()
