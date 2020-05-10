@@ -321,7 +321,7 @@ while start < t_flight:
 xmin = 0
 xmax = u*math.cos(theta)*intervals[-1]
 ymin = 0
-t_max = u*math.sin(theta)/g
+t_max = u*math.sin(theta)/gt
 ymax = u*math.sin(theta)*t_max - 0.5*g*t_max**2
 fig = plt.gcf()
 ax = plt.axes(xlim=(xmin, xmax), ylim=(ymin, ymax))
