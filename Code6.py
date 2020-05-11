@@ -498,7 +498,7 @@ def draw_fern(n):
         y.append(y1)
     return x, y
 
-n = int(1000)
+n = int(100000)
 x, y = draw_fern(n)
 # Plot the points
 plt.plot(x, y, 'o')
